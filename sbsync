@@ -12,7 +12,7 @@ b=$(tput bold)
 n=$(tput sgr0)
 
 # prevent syncing to production at all
-echo "$to" | ggrep -iv "backup" | ggrep -iE "production|live" && echo "" && exit
+echo "$to" | ggrep -iv "backup" | ggrep -iE "production|live" && echo "${r}sync to anything production disabled${n}" && exit
 
 read -p "storyblok sync from ${g}${b}$from${n} to ${r}${b}$to${n}? (Y/n) " -n 1 -s -r
 
