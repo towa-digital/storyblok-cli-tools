@@ -1,5 +1,7 @@
 # storyblok-tools
 
+[![asciicast](https://asciinema.org/a/gcGQrWnjzLljulJo4qON7UooQ.svg)](https://asciinema.org/a/gcGQrWnjzLljulJo4qON7UooQ)
+
 ## Install
 
 Clone the repository to a location of your choice and add it to your `$PATH`.
