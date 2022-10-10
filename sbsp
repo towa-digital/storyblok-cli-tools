@@ -1,0 +1,4 @@
+#!/bin/bash
+
+storyblok spaces | ggrep -E "[0-9]{6}" > /tmp/spaces
+cat /tmp/spaces | fzf "$@" | ggrep -oE "[0-9]{6}"

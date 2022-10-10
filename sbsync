@@ -1,0 +1,24 @@
+#!/bin/bash
+
+src=$(sbsp --prompt="source space: ")
+dest=$(sbsp --prompt="target space: ")
+
+from=$(cat /tmp/spaces | ggrep "$src")
+to=$(cat /tmp/spaces | ggrep "$dest")
+
+g=$(tput setaf 2)
+r=$(tput setaf 1)
+b=$(tput bold)
+n=$(tput sgr0)
+
+# prevent syncing to production at all
+echo "$to" | ggrep -iv "backup" | ggrep -iE "production|live" && echo "" && exit
+
+read -p "storyblok sync from ${g}${b}$from${n} to ${r}${b}$to${n}? (Y/n) " -n 1 -s -r
+
+if [[ ${REPLY:-"y"} =~ ^[Yy]$ ]]; then
+	echo
+	storyblok sync --type components,folders,stories,datasources --source $src --target $dest
+fi
+
+
