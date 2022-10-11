@@ -5,9 +5,10 @@
 ## Install
 
 Clone the repository to a location of your choice and add it to your `$PATH`.
-Make sure to install GNU's version of `grep` if you're using Mac OS.
+Make sure to install GNU's version of `grep` if you're using Mac OS (should work for you out of the box).
 
 ```
+npm install -g towa-storyblok
 brew install grep fzf
 ```
 
