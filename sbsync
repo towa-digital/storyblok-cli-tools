@@ -1,8 +1,9 @@
 #!/bin/bash
 
+types=${1:-"components,folders,stories,datasources"}
+
 src=$(sbsp --prompt="source space: ")
 dest=$(sbsp --prompt="target space: ")
-
 from=$(cat /tmp/spaces | ggrep "$src")
 to=$(cat /tmp/spaces | ggrep "$dest")
 
@@ -18,7 +19,7 @@ read -p "storyblok sync from ${g}${b}$from${n} to ${r}${b}$to${n}? (Y/n) " -n 1 
 
 if [[ ${REPLY:-"y"} =~ ^[Yy]$ ]]; then
 	echo
-	storyblok sync --type components,folders,stories,datasources --source $src --target $dest
+	storyblok sync --type "$types" --source $src --target $dest
 fi
 
 
